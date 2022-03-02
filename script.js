@@ -241,15 +241,195 @@ if(typeof(nombre3) == 'number'){
 }
 
 
+//DRY : Don't repeat yourself
+
+//Forme ternaire
+let sexe = 'm';
+let civilite = (sexe == 'm') ? 'monsieur' : 'madame';
+            //condition question sivrai sinon
+/* let civilité
+if( sexe == 'm'){
+    civilite ='monsieur';
+}
+else{
+    civilite = 'madame'
+}*/
+
+console.log(civilite);
 
 
+document.write('<h2>Structures itératives : boucles</h2>');
+
+/*
+1 -situation de départ
+2 condition qui fait tourner la boucle
+3 incrémentation
+*/
+
+// Boucle while
+let i = 1; //point 1 situation de départ
+//boulean puis accolade
+while(i<=10){//point 2 while(tant que) qui tourne en boucle
+    document.write(i+' ')
+    i++;// point 3 incrémentation
+}
+document.write('<hr>');
+
+//boucle for (pour)
+//1 2 3
+
+for(let i=1; i<=10; i++){
+    document.write(i+' ');
+}
+document.write('<br>');
+
+//exercice avec la boucle de votre choix, afficher un comptage de 10 à 100 de 10 en 10
+//résultat attendu 10 20 30 40
+
+for(let i=10; i<=100; i+=10){
+    document.write(i+' ');
+}
+//espace local et global attention au let dans un if ou for il est local mais gobal dans une simple déclaration
+document.write('<br>');
+document.write('<hr>');
+// do /while 
+
+i = 6;
+do{
+    document.write(i);// cette instruction sera executée au moins une fois
+    i++;
+}
+while(i<=10);
 
 
+/*let reponse
+do{
+    reponse = window.prompt('Ecrivez stop')
+}
+while(reponse != 'stop');*/
+document.write('<br>');
+document.write('<hr>');
+
+document.write('<select>');
+//2004 => 1904 de 1 en 1
+for(let annee=2004; annee>=1904; annee--){
+    document.write(`<option>${annee}</option>`);
+}
+document.write('</select>');
 
 
+//boucles imbriquées
+let lignes = 8;
+let colonnes = 8;
+document.write('<table>');
+for(let lig=1; lig<= lignes; lig++){
+// on trace les lignes
+document.write('<tr>');
+//on trace les colonnes
+for(let col=1; col <= colonnes; col++){
+    document.write('<td></td>');
+}
+document.write('</tr>');
+}
+document.write('<table>');
 
+document.write('<br>');
+document.write('<hr>');
 
+document.write('<h2>Fonctions prédéfinies</h2>');
 
+let phrase = "Je m'appelle Steven"
+document.write(`Ma phrase contient ${phrase.length} caractères`);
+//length est une propriété de phrase qui renvoie sa longueur (nbre de caratères)
 
+document.write(`<br>En majuscules : ${phrase.toUpperCase()}<br>`);// force en majuscules c'est une méthode
+document.write(`<br>En majuscules : ${phrase.toLowerCase()}<br>`); //en minuscules
 
+document.write('<br>Steven se trouve à la position' + phrase.indexOf('Steven'));
+//phrase indexOf (chaine) renvoie la position de départ de chaine à l'intérieur de phrase si non trouvé renvoie -1
+document.write('<br>');
+//substring souschaine
+document.write(phrase.substring(13,19));
+//substring (position_depart, position arrivée)
+document.write('<br>');
+let email = 'anthonylucher@gmail.com'
+document.write(email.substring(email.indexOf('@')+1));
 
+// Fonctions aux nombres
+let monNombre = 125;
+console.log( Number.isInteger(monNombre));
+
+let prix = "45.92€"
+console.log(parseInt(prix));//entier
+console.log(parseFloat(prix));//decimal
+
+let valeurPrix = parseFloat(prix);
+console.log(Math.round(valeurPrix));//arrondi à l'entier le plus proche
+console.log(Math.floor(valeurPrix)); //arrondi à l'entier inférieur
+console.log(Math.ceil(valeurPrix));//arrondi à l'entier supérieur
+
+console.log(Math.random());// renvoie un chiffre aléatoire compris entre 0 et 1 non inclus
+
+// simuler un jet de "dé"
+
+console.log(Math.floor(Math.random()*6) + 1);
+
+// Simuler un jet de dé pour vous, pour l'ordinateur
+//si votre score est supérieur à celui de l'ordinateur, afficher vous avez gagné
+//inférieur à l'ordi afficher vous avez perdu
+// score identique match nul
+document.write('<hr>');
+
+let player = 'joueur'
+document.write(Math.floor(Math.random()*6) + 1)
+document.write('<br>');
+let ordi = 'ordinateur'
+document.write(Math.floor(Math.random()*6) + 1)
+
+let result='resultat'
+if('joueur'>'ordinateur'){
+    document.write("vous avez gagné")
+}
+document.write('<hr>');
+//correction
+
+let monJet = Math.floor(Math.random()*6) + 1;
+let jetOrdi = Math.floor(Math.random()*6) + 1;
+
+document.write(`Vous avez obtenu ${monJet} et l'ordinateur a obtenu ${jetOrdi} <br>`)
+
+if(monJet > jetOrdi){
+    document.write('vous avez gagné !<br>');
+}
+else if(monJet < jetOrdi){
+    document.write('vous avez perdu !<br>');
+}
+else{
+    document.write('match nul !<br>');
+}
+
+document.write('<h2>Fonctions utilisateur</h2>');
+//déclarer la fonction
+function direBonjour(){
+    document.write('Bonjour!<br>');}
+direBonjour();
+
+direBonjour();
+
+function direBonjour2(prenom){
+    document.write('Bonjour ' +prenom+'<br>');
+}
+
+direBonjour2('Anthony');
+direBonjour2('Amy');
+
+function direBonjour3(prenom){
+    return 'Bonjour ' + prenom + '<br>'//return renvoi une réponse et sort de la fonction
+}
+
+let bienvenue = direBonjour3('Fred');
+document.write(direBonjour3('Jenne'));
+document.write(bienvenue);
+
+function calculTva(prixHT, taux)
+let prixTTC = prixHT * (1 +taux/100)
