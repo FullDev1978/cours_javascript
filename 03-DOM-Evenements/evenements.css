@@ -1,0 +1,53 @@
+.carre{
+    width: 100px;
+    height: 100px;
+}
+
+.rond{
+    border-radius: 50%;
+}
+.border{
+    border: 5px black;
+}
+.vert{background-color: green;}
+.rouge{background-color: red;}
+.bleu{background-color: blue;}
+.violet{background-color: purple;}
+
+a{
+    color:cyan;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+a:visited{
+    color:orange;
+}
+
+
+#monmenu{
+    border:3px solid black;
+    background:lightgray;    
+    width:200px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%,0);
+}
+#monmenu ul{
+    list-style:none;
+}
+#monmenu ul li a {
+    color:black;
+}
+
+.invisible{
+    display:none;
+}
+
+#eye{
+    cursor: pointer;
+}

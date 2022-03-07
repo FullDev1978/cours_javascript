@@ -431,5 +431,199 @@ let bienvenue = direBonjour3('Fred');
 document.write(direBonjour3('Jenne'));
 document.write(bienvenue);
 
-function calculTva(prixHT, taux)
-let prixTTC = prixHT * (1 +taux/100)
+//manque function calcul TVA
+
+// Exemple de fonction de calcul de la tva à partir d'un prix HT et d'un taux
+// En attribuant une valeur à un paramètre (ex: taux=20), il devient optionnel au moment de l'appel de la fonction et aura une valeur par défaut
+// Déclaration de type FUNCTION STATEMENT
+function calculTVA(prixHT, taux=20) {
+    // let prixTTC = prixHT * ( 1 + taux/100);
+    let prixTTC = prixHT + (prixHT * taux / 100);
+    return prixTTC;
+}
+
+// exemples d'utilisation
+document.write(calculTVA(100, 20) + '<br>');
+document.write(calculTVA(100, 5.5) + '<br>');
+document.write(calculTVA(450, 20) + '<br>');
+document.write(calculTVA(200) + '<br>');
+document.write(calculTVA(200,5.5) + '<br>');
+
+
+let maFonction = function (){
+    console.log('Hello');
+};
+
+maFonction();
+
+//espaces local et global
+let animal='loup';
+function jungle(){
+    //espace local
+    let animal = 'tigre';
+    return animal;
+}
+document.write(animal);//loup
+document.write(jungle());//tigre
+document.write(animal);//loup
+
+
+
+document.write('<h2>Tableaux de données: Array</h2>');
+let legumes = ['Carotte','Poireaux','Courgette']
+let fruits = ['Banane', 'Raisin','Pomme','Mangue'];
+console.log(fruits);
+document.write(fruits[2] + '<br>');
+document.write(`Mon tableau fruits contient ${fruits.length} éléments <br>`)
+
+fruits.push('pêche');// push() permet d'ajouter un ou des éléments.
+console.log(fruits);
+
+document.write(fruits.join('_'));//liste les éléments avec un séparateur
+
+console.log(fruits.indexOf('Raisin'));//renvoie l'index de lélément; -1 si non trouvé
+
+console.log(fruits.includes('Raisin'))//renvoie un boulean qui indique si l'élélent est inclus dans le tableau ou pas
+console.log(fruits.includes('Citron'));
+
+fruits.pop();
+console.log(fruits);
+fruits.push('Pêche');
+console.log(fruits);
+
+//fruits.splice(2,1);
+fruits.splice(fruits.indexOf('Pomme'),1);// splice(position_depart,nb_elements)
+console.log(fruits);
+
+fruits.shift();//retire le premier élément
+console.log(fruits);
+
+//fruits.pop();
+//équivalent fruits.splice(fruits.Length-1,1)
+
+fruits.push('Banane', 'Orange');
+
+document.write('<ul>');
+for(let i = 0; i < fruits.length; i++){
+    document.write(`<li>${fruits[i]}</li>`);
+}
+document.write('</ul>');
+
+//tableaux multidimensionnels
+
+let maraicher=[
+    fruits,
+    legumes
+];
+
+console.log(maraicher);
+
+document.write(maraicher[1][1] + '<br>');// poireaux
+document.write(maraicher[0][3] + '<br>');//banane
+
+document.write(maraicher[1][1] + ' et ' + maraicher[0][3] +'<br>');
+document.write(`${maraicher[1][1]} et ${maraicher[0][3]}<br>`);
+
+document.write(maraicher + '<br>');
+
+
+// parcourir le tableau maraicher et liste tous ses éléments
+document.write('<ul>');
+for(let i=0; i < maraicher.length; i++) // tourne 2 fois
+{
+
+
+    for(let k=0; k < maraicher[i].length; k++){ // parcoure fruits au premier tour, parcoure au légumes au deuxième tour
+        document.write(`<li>${maraicher[i][k]}</li>`);
+    }
+}
+document.write('</ul>');
+
+// Boucle for/in
+for(let i in fruits){
+    document.write(i + ' => ' + fruits[i] + '<br>');
+}
+
+// Version avec for/in
+document.write('<ul>');
+for(let i in maraicher){
+    for(let k in maraicher[i]){
+        document.write(`<li>${maraicher[i][k]}</li>`);  
+    }
+}
+document.write('</ul>');
+
+//DOM
+//AJAX
+//JSON
+
+document.write('<h2>Les ojets</h2>');
+
+let voiture = {
+    //propriétés
+    "marque" : "Renault",
+    "modele" : "Clio",
+    "couleur" : "rouge",
+    //méthodes
+    "demarrer" : function(){
+        return "Je démarre";
+    }
+};
+console.log(voiture);
+
+document.write(voiture.modele);//Affichage clio
+document.write('<br>');
+document.write(voiture.demarrer());
+
+//plan de fabrication (class)
+
+class Maison{
+constructor(nbPieces, superficie){
+    this.ndPieces = nbPieces;
+    this.superficie = superficie;
+    this.couleurDesMurs = 'blanc';
+    this.nbPortes = 10;
+}
+repeindre(nouvelleCouleur){
+    this.couleurDesMurs = nouvelleCouleur;
+}
+
+}
+//Appartement hérite de maison
+class Appartement extends Maison{
+    constructor(){
+        super();//Super constructor
+        this.etage=2;
+    }
+
+}
+//Fabrication d'objets à partir du plan maison json (this. appelle la designation de l'objet)
+let maison1 = new Maison (5,120);//new permet d'instancier la classe et fabrique un objet
+console.log(maison1.superficie);
+console.log(maison1.couleurDesMurs);
+maison1.repeindre('bleu');//appelle la methode repeindre
+console.log(maison1.couleurDesMurs);
+let maison2 = new Maison (2,45);
+
+
+let appart1 = new Appartement(4,80);
+console.log(appart1);
+
+document.write('<hr>');
+let maDate = new Date();
+console.log(maDate.getDay()); // 0 dimanche - 6-samedi
+// 5 = vendredi
+console.log(maDate.getDate());
+// numéro du jour 1-31
+console.log(maDate.getMonth());
+
+// Tableaux de correspondance
+let jours = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+let mois = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+document.write(`Aujourd'hui nous sommes ${jours[maDate.getDay()]} ${maDate.getDate()} ${mois[maDate.getMonth()]} ${maDate.getFullYear()}<br>`);
+
+let autreDate= new Date('1914-04-14'); // format aaaa-mm-jj
+document.write(`Le Titanic a coulé le  ${jours[autreDate.getDay()]} ${autreDate.getDate()} ${mois[autreDate.getMonth()]} ${autreDate.getFullYear()}<br>`);
+
+document.write(maDate.toLocaleDateString()); // Format FR 04/03/2022
