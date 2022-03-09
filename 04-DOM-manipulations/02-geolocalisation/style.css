@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#map{
+    margin: 70px auto 0;
+    width: 75vw;/*viewport width*/
+    /*height: 100vh;viewport height*/
+    height: calc(75vw * 9 / 16);
+    border: 1px solid black;
+
+}
