@@ -171,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // let valeurSelectionne = this.options[this.selectedIndex].innerHTML;
         console.log(valeurSelectionne);
     });
+    
 
     /* exemple de choix dynamique basée sur un fichier json */
     fetch('departements-region.json')
@@ -213,7 +214,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(function(error){
             console.log(error);
         });
-
 
 
 }); // fin du DOM chargé

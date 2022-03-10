@@ -640,6 +640,7 @@ let voiture = {
         return "Je démarre";
     }
 };
+
 console.log(voiture);
 document.write(voiture.modele); // Affiche Clio
 document.write('<br>');
