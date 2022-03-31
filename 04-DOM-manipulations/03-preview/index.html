@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview</title>
+    <link rel="stylesheet" href="/04-DOM-manipulations/03-preview/style.css">
+</head>
+
+<body>
+    <!-- lorsque le formulaire contient des input type=file-->
+    <fieldset>
+        <legend>Inscription</legend>
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                <label for="pseudo">Pseudo</label>
+                <input type="text" id="pseudo" name="pseudo">
+            </div>
+            <div>
+                <label for="avatar">
+                    <img src="/04-DOM-manipulations/03-preview/téléchargement.png" alt="avatar" id="preview">
+                </label>
+                <input type="file" id="avatar" name="avatar" accept="image/jpeg,omage/png">
+            </div>
+            <button type="submit">Envoyer</button>
+        </form>
+    </fieldset>
+
+    <script src="/04-DOM-manipulations/03-preview/script.js"></script>
+</body>
+
+</html>

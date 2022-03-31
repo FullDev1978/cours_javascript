@@ -3,3 +3,20 @@ h2
     background-color: black;
     color: white;
 }
+td{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+
+}
+table{
+    border-collapse: collapse;
+}
+
+/* even : pair oddimpair*/
+tr:nth-child(even) td:nth-child(odd){
+    background-color: black;
+}
+tr:nth-child(odd) td:nth-child(even){
+    background-color: black;
+}
